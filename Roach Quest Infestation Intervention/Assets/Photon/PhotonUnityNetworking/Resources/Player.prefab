@@ -124,6 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26c75954590217d4388262aaebe27293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jarButton: {fileID: 0}
+  toDormButton: {fileID: 0}
   id: 0
   moveSpeed: 5
   roach: 0

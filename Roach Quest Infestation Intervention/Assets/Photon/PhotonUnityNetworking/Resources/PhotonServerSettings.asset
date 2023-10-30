@@ -48,6 +48,8 @@ MonoBehaviour:
   - FlashDamage
   - GiveRoach
   - OnTriggerEnter2D
+  - TeleportPlayer
+  - OnCollisionEnter2D
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

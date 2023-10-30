@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 using Photon.Pun;
 using Photon.Realtime;
 
 public class PlayerController : MonoBehaviourPun
 {
+    public Button jarButton;
+    public Button toDormButton;
+
     [HideInInspector]
     public int id;
 
@@ -144,6 +149,51 @@ public class PlayerController : MonoBehaviourPun
 
         // update the ui
         GameUI.instance.UpdateRoachText(roach);
+    }
+
+    [PunRPC]
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Door"))
+        {
+            if (gameObject.GetComponent<PlayerController>().roach >= 25)
+            {
+                TeleportHousing();
+            }
+            else
+            {
+                Debug.Log("Not enough.");
+            }
+        }
+    }
+
+    public void TeleportHousing()
+    {
+        transform.position = new Vector3(62, -18, 0);
+    }
+
+    public void TeleportDorm()
+    {
+        transform.position = new Vector3(0, 0, 0);
+    }
+
+    public void OnJarButton()
+    {
+        TakeRoach();
+        toDormButton.interactable = true;
+    }
+
+    public void TakeRoach()
+    {
+        roach -= 25;
+
+        // update the ui
+        GameUI.instance.UpdateRoachText(roach);
+    }
+
+    public void OnToDormButton()
+    {
+        TeleportDorm();
     }
 
 }

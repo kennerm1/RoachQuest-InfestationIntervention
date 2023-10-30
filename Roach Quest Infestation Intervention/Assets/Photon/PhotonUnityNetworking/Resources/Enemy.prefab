@@ -128,7 +128,7 @@ MonoBehaviour:
   curHp: 50
   maxHp: 50
   chaseRange: 5
-  attackRange: 5
+  attackRange: 2.5
   playerDetectRate: 0.2
   objectToSpawnOnDeath: GoldPickup
   damage: 1
